@@ -1,0 +1,25 @@
+h1,
+p {
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.default-table-style {
+  margin: 0 30px;
+  border: 2px solid black;
+}
+
+.default-table-style th {
+  text-align: left;
+  border-bottom: 1px solid blue;
+}
+
+.default-table-style td {
+  text-align: left;
+  padding: 5px;
+  white-space: nowrap;
+}
