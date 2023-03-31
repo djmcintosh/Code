@@ -8,15 +8,33 @@ function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
   const addFavorite = (name) => {
-    const restaurant = restaurants.find(
+    const restaurant = allRestaurants.find(
       (restaurant) => restaurant.name === name
     );
 
     setFavorites([...favorites, restaurant]);
+
+    setAllRestaurants(
+      allRestaurants.filter((restaurant) => restaurant.name !== name)
+    );
+  };
+
+  /* the removal process */
+
+  const removeFavorite = (name) => {
+    const restaurant = favorites.find((restaurant) => restaurant.name === name);
+
+    setAllRestaurants([...allRestaurants, restaurant]);
+
+    setFavorites(favorites.filter((restaurant) => restaurant.name !== name));
   };
 
   /* const restaurant = tasks.find(task => task.name == name);
   <button onClick={() => addFavorite(restaurant.name)}>Add</button> */
+
+  /* setRestaurants(restaurants.filter(restaurant =>
+                  restaurant.name !== name
+                )) */
 
   return (
     <div>
@@ -41,7 +59,7 @@ function Favorites() {
           </tr>
         ))}
       </table>
-      ;{/* Favorites */}
+      {/* Favorites */}
       <table className="default-table-style">
         <caption>Favorites</caption>
         <tr>
@@ -59,7 +77,9 @@ function Favorites() {
             <td>{favorite.phone}</td>
             <td>{favorite.address}</td>
             <td>
-              <button>Remove From Favorites</button>
+              <button onClick={() => removeFavorite(favorite.name)}>
+                Remove From Favorites
+              </button>
             </td>
           </tr>
         ))}
@@ -67,3 +87,5 @@ function Favorites() {
     </div>
   );
 }
+
+export default Favorites;
