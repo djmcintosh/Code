@@ -10,16 +10,32 @@ main {
 
 .default-table-style {
   margin: 0 30px;
-  border: 2px solid black;
+  border: 5px solid black;
+  color: black;
+  background-color: rgb(80, 255, 144);
 }
 
 .default-table-style th {
   text-align: left;
-  border-bottom: 1px solid blue;
+  border-bottom: 2px dotted black;
 }
 
 .default-table-style td {
   text-align: left;
   padding: 5px;
   white-space: nowrap;
+}
+
+button {
+  color: black;
+  background-color: white;
+  border-radius: 2px;
+}
+.disabled {
+  color: red;
+  background-color: crimson;
+}
+caption {
+  font-weight: bold;
+  color: grey;
 }

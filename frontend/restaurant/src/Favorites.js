@@ -11,21 +11,19 @@ function Favorites() {
     const restaurant = allRestaurants.find(
       (restaurant) => restaurant.name === name
     );
-
     setFavorites([...favorites, restaurant]);
-
-    setAllRestaurants(
-      allRestaurants.filter((restaurant) => restaurant.name !== name)
-    );
+    restaurant.isFavorite = true;
+    // setAllRestaurants(
+    // allRestaurants.filter((restaurant) => restaurant.name !== name)
+    // );
   };
 
   /* the removal process */
 
   const removeFavorite = (name) => {
     const restaurant = favorites.find((restaurant) => restaurant.name === name);
-
-    setAllRestaurants([...allRestaurants, restaurant]);
-
+    restaurant.isFavorite = false;
+    //  setAllRestaurants([...allRestaurants, restaurant]);
     setFavorites(favorites.filter((restaurant) => restaurant.name !== name));
   };
 
@@ -51,10 +49,15 @@ function Favorites() {
           <tr>
             <td>{restaurant.name}</td>
             <td>{restaurant.category}</td>
-            <td>{restaurant.phone}</td>
+            <td>{restaurant.phoneNumber}</td>
             <td>{restaurant.address}</td>
             <td>
-              <button onClick={() => addFavorite(restaurant.name)}>Add</button>
+              <button
+                disabled={restaurant.isFavorite}
+                onClick={() => addFavorite(restaurant.name)}
+              >
+                Add
+              </button>
             </td>
           </tr>
         ))}
@@ -74,7 +77,7 @@ function Favorites() {
           <tr>
             <td>{favorite.name}</td>
             <td>{favorite.category}</td>
-            <td>{favorite.phone}</td>
+            <td>{favorite.phoneNumber}</td>
             <td>{favorite.address}</td>
             <td>
               <button onClick={() => removeFavorite(favorite.name)}>
