@@ -75,7 +75,7 @@ function Todo2() {
           value={newTask}
           onChange={createTask}
           id="myInput"
-          placeholder="Title..."
+          placeholder="To Do..."
         />
 
         <span onClick={handleCreateTask} className="addBtn">
@@ -91,7 +91,13 @@ function Todo2() {
               checked={task.completed}
               onChange={() => handleChangeTaskStatus(task.id)}
             />
-            {task.title}
+
+            <input type="text" value={task.title} />
+
+            <button onClick={() => handleChangeTaskStatus(task.id)}>
+              Update
+            </button>
+
             <span className="close" onClick={() => handleRemoveTask(task.id)}>
               X
             </span>
