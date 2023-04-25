@@ -92,6 +92,9 @@ function Todo2() {
               onChange={() => handleChangeTaskStatus(task.id)}
             />
             {task.title}
+            <button onClick={() => handleChangeTaskStatus(task.id)}>
+              Update
+            </button>
             <span className="close" onClick={() => handleRemoveTask(task.id)}>
               X
             </span>
