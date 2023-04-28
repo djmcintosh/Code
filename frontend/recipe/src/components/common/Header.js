@@ -10,7 +10,7 @@ export default function Header() {
       <Toolbar>
         <CameraIcon sx={{ mr: 2 }} />
         <Typography variant="h6" color="inherit" noWrap>
-          Album layout
+          Recipe Book
         </Typography>
       </Toolbar>
     </AppBar>

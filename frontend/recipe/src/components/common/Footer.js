@@ -16,7 +16,8 @@ export default function footer() {
       >
         Something here to give the footer a purpose!
       </Typography>
-      <Copyright />
+      <Copyright siteName={"AllKnowing"} siteURL = "https://google.com" />
     </Box>
   );
 }
+
